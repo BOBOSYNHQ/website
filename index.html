@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BOBOSYN — AI · Web3 · Open Source</title>
+
+  <meta
+    name="description"
+    content="BOBOSYN builds open-source tools, AI-powered products, and Web3 software."
+  >
+
+  <meta name="theme-color" content="#080808">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      background: #080808;
+      color: #f5f5f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       Navigation
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(8, 8, 8, 0.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 14px;
+      color: #a7a7a7;
+    }
+
+    .nav-links a {
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 76px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      left: 50%;
+      top: 42%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.08) 0%,
+        rgba(255,255,255,0.025) 35%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #9d9d9d;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 16px rgba(255,255,255,0.8);
+    }
+
+    h1 {
+      font-size: clamp(64px, 10vw, 132px);
+      line-height: 0.9;
+      letter-spacing: -0.065em;
+      font-weight: 800;
+      margin-bottom: 34px;
+    }
+
+    .hero-title-sub {
+      display: block;
+      color: #777777;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      color: #9d9d9d;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 42px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      font-size: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .button.primary {
+      background: #ffffff;
+      color: #080808;
+      border-color: #ffffff;
+      font-weight: 600;
+    }
+
+    .button.primary:hover {
+      transform: translateY(-2px);
+      background: #e8e8e8;
+    }
+
+    .button.secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* =========================
+       Sections
+    ========================= */
+
+    section {
+      padding: 140px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .section-label {
+      color: #666666;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 24px;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: #888888;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       Capabilities
+    ========================= */
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 70px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .capability {
+      min-height: 260px;
+      padding: 38px;
+      background: #080808;
+    }
+
+    .capability-number {
+      color: #555555;
+      font-size: 13px;
+      margin-bottom: 70px;
+    }
+
+    .capability h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .capability p {
+      color: #777777;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       Projects
+    ========================= */
+
+    .projects {
+      margin-top: 70px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-number {
+      color: #555555;
+      font-size: 13px;
+    }
+
+    .project h3 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .project p {
+      color: #777777;
+      font-size: 14px;
+    }
+
+    .project-status {
+      color: #8a8a8a;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       About
+    ========================= */
+
+    .about-grid {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .about-large {
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+    }
+
+    .about-text {
+      color: #888888;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    /* =========================
+       Contact
+    ========================= */
+
+    .contact {
+      text-align: center;
+      padding-bottom: 160px;
+    }
+
+    .contact .section-title {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact .section-description {
+      margin: 0 auto 40px;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 30px 0;
+      color: #555555;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .container {
+        width: min(100% - 32px, 1180px);
+      }
+
+      .nav-inner {
+        height: 68px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      h1 {
+        font-size: clamp(58px, 18vw, 100px);
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      .capabilities {
+        grid-template-columns: 1fr;
+      }
+
+      .capability {
+        min-height: auto;
+      }
+
+      .capability-number {
+        margin-bottom: 45px;
+      }
+
+      .project {
+        grid-template-columns: 45px 1fr;
+        gap: 16px;
+      }
+
+      .project-status {
+        grid-column: 2;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">BOBOSYN</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Independent Studio
+          </div>
+
+          <h1>
+            BOBOSYN
+            <span class="hero-title-sub">
+              Build the next.
+            </span>
+          </h1>
+
+          <p class="hero-description">
+            BOBOSYN is an independent studio building
+            open-source tools, AI-powered products,
+            and Web3 software.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="button primary">
+              Explore Projects
+            </a>
+
+            <a
+              href="https://github.com/BOBOSYNHQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button secondary"
+            >
+              GitHub
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- What We Build -->
+    <section>
+      <div class="container">
+
+        <div class="section-label">
+          What We Build
+        </div>
+
+        <h2 class="section-title">
+          Ideas into<br>
+          useful products.
+        </h2>
+
+        <p class="section-description">
+          We explore emerging technologies and turn useful
+          ideas into practical software products.
+        </p>
+
+        <div class="capabilities">
+
+          <div class="capability">
+            <div class="capability-number">01</div>
+
+            <h3>AI Tools</h3>
+
+            <p>
+              AI-powered utilities and software designed
+              to make complex workflows simpler.
+            </p>
+          </div>
+
+          <div class="capability">
+            <div class="capability-number">02</div>
+
+            <h3>Web3</h3>
+
+            <p>
+              Software and infrastructure exploring the
+              next generation of the internet.
+            </p>
+          </div>
+
+          <div class="capability">
+            <div class="capability-number">03</div>
+
+            <h3>Open Source</h3>
+
+            <p>
+              Useful tools and developer products built
+              openly and shared with the community.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-label">
+          Projects
+        </div>
+
+        <h2 class="section-title">
+          Building in public.
+        </h2>
+
+        <p class="section-description">
+          A growing collection of products, experiments,
+          and open-source projects from BOBOSYN.
+        </p>
+
+        <div class="projects">
+
+          <div class="project">
+            <div class="project-number">01</div>
+
+            <div>
+              <h3>AI Skill Products</h3>
+              <p>
+                Turning useful open-source AI skills into
+                practical software products.
+              </p>
+            </div>
+
+            <div class="project-status">
+              Building
+            </div>
+          </div>
+
+
+          <div class="project">
+            <div class="project-number">02</div>
+
+            <div>
+              <h3>Web3 Tools</h3>
+              <p>
+                Experiments and utilities for the
+                decentralized web.
+              </p>
+            </div>
+
+            <div class="project-status">
+              Exploring
+            </div>
+          </div>
+
+
+          <div class="project">
+            <div class="project-number">03</div>
+
+            <div>
+              <h3>Open Source</h3>
+              <p>
+                Small tools designed to solve real problems
+                and help others build faster.
+              </p>
+            </div>
+
+            <div class="project-status">
+              Open
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-label">
+          About BOBOSYN
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-large">
+            One-person studio.
+            Global products.
+            Built with AI.
+          </div>
+
+          <div class="about-text">
+            BOBOSYN is an independent digital studio
+            focused on building software at the intersection
+            of AI, Web3, and open source.
+
+            <br><br>
+
+            We believe small teams can build ambitious
+            products by combining technology, automation,
+            and relentless experimentation.
+
+            <br><br>
+
+            The studio starts small and builds in public.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-label">
+          Get in touch
+        </div>
+
+        <h2 class="section-title">
+          Let's build something.
+        </h2>
+
+        <p class="section-description">
+          Follow the work, explore the projects,
+          or get in touch with BOBOSYN.
+        </p>
+
+        <div class="buttons" style="justify-content: center;">
+
+          <a
+            href="mailto:hello@bobosyn.com"
+            class="button primary"
+          >
+            hello@bobosyn.com
+          </a>
+
+          <a
+            href="https://x.com/BOBOSYN"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button secondary"
+          >
+            X / Twitter
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        © <span id="year"></span> BOBOSYN
+      </div>
+
+      <div class="footer-links">
+
+        <a
+          href="https://github.com/BOBOSYNHQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://x.com/BOBOSYN"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          X
+        </a>
+
+        <a
+          href="https://bobosyn.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          bobosyn.com
+        </a>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
