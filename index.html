@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="BOBOSYN builds open-source tools, AI-powered products, and Web3 software."
+    content="BOBOSYN builds open-source tools, AI-powered products, and Web3 software. Current focus: Protocol Scout — AI-powered Web3 protocol research on Base mainnet."
   >
 
   <meta name="theme-color" content="#080808">
@@ -312,6 +312,33 @@
       text-transform: uppercase;
     }
 
+    .project-status.live {
+      color: #6ddc8e;
+    }
+
+    .project[href] {
+      cursor: pointer;
+      transition: padding 0.2s ease, color 0.2s ease;
+    }
+
+    .project[href]:hover {
+      padding-left: 18px;
+      padding-right: 18px;
+      color: #ffffff;
+    }
+
+    .project[href]:hover .project p {
+      color: #b5b5b5;
+    }
+
+    .project[href] h3 {
+      transition: color 0.2s ease;
+    }
+
+    .project[href]:hover h3 {
+      color: #ffffff;
+    }
+
     /* =========================
        About
     ========================= */
@@ -587,21 +614,21 @@
 
         <div class="projects">
 
-          <div class="project">
+          <a class="project" href="https://protocol-scout.bobosyn.com" target="_blank" rel="noopener noreferrer">
             <div class="project-number">01</div>
 
             <div>
-              <h3>AI Skill Products</h3>
+              <h3>Protocol Scout →</h3>
               <p>
-                Turning useful open-source AI skills into
-                practical software products.
+                AI-powered Web3 protocol research. TVL, fees, mechanism,
+                risks — one shot, shareable, pay-as-you-go on Base mainnet.
               </p>
             </div>
 
-            <div class="project-status">
-              Building
+            <div class="project-status live">
+              Live
             </div>
-          </div>
+          </a>
 
 
           <div class="project">
